@@ -15,6 +15,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        final double EPS = 1e-14;
         double x1 = 0, y1 = 0, r1 = 0, x2 = 0, y2 = 0, r2 = 0;
         while (global.a != 0) {
             global.a = 3;
@@ -61,7 +62,7 @@ public class Main {
             double dist = Math.sqrt(x * x + y * y);
             if ((r1 + r2 < dist) || (Math.max(r1, r2) > (Math.min(r1, r2) + dist))) {
                 System.out.println("Окружности не пересекаются.");
-            } else if ((r1 + r2 == dist) || (Math.max(r1, r2) == Math.min(r1, r2) + dist)) {
+            } else if (Math.abs((r1 + r2) - dist) < EPS || Math.abs(Math.max(r1, r2) - (Math.min(r1, r2) + dist)) < EPS) {
                 System.out.println("Окружности пересекаются в одной точке.");
             } else {
                 System.out.println("Окружности пересекаются в 2-ух точках.");
