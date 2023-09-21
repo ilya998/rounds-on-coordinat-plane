@@ -26,6 +26,13 @@ public class Main {
             y1 = global.temp;
             inpt(scan);
             r1 = global.temp;
+            if (r1 < 0) {
+                global.a++;
+                System.out.println("Первый радиус отрицательный, пожалуйста ввобдите только положительные значения дл радиуса.");
+            } else if (r1 == 0) {
+                global.a++;
+                System.out.println("Радиус не может быть равен нулю, пожалйста вводите только положительные значения.");
+            }
         }
         global.a = 3;
         while (global.a != 0) {
@@ -38,16 +45,27 @@ public class Main {
             y2 = global.temp;
             inpt(scan1);
             r2 = global.temp;
+            if (r2 < 0) {
+                global.a++;
+                System.out.println("Второй радиус отрицательный, пожалуйста ввобдите только положительные значения дл радиуса.");
+            } else if (r2 == 0) {
+                global.a++;
+                System.out.println("Радиус не может быть равен нулю, пожалйста вводите только положительные значения.");
+            }
         }
-        double x = Math.abs(x1 - x2);
-        double y = Math.abs(y1 - y2);
-        double dist = Math.sqrt(x * x + y * y);
-        if ((r1 + r2 < dist) || (Math.max(r1, r2) > (Math.min(r1, r2) + dist))) {
-            System.out.println("Окружности не пересекаются.");
-        } else if ((r1 + r2 == dist) || (Math.max(r1, r2) == Math.min(r1, r2) + dist)) {
-            System.out.println("Окружности пересекаются в одной точке.");
+        if (x1 == x2 && y1 == y2 && r1 == r2) {
+            System.out.println("Окружности идентичны и находятся в одной точке.");
         } else {
-            System.out.println("Окружности пересекаются в 2-ух точках.");
+            double x = Math.abs(x1 - x2);
+            double y = Math.abs(y1 - y2);
+            double dist = Math.sqrt(x * x + y * y);
+            if ((r1 + r2 < dist) || (Math.max(r1, r2) > (Math.min(r1, r2) + dist))) {
+                System.out.println("Окружности не пересекаются.");
+            } else if ((r1 + r2 == dist) || (Math.max(r1, r2) == Math.min(r1, r2) + dist)) {
+                System.out.println("Окружности пересекаются в одной точке.");
+            } else {
+                System.out.println("Окружности пересекаются в 2-ух точках.");
+            }
         }
     }
 }
