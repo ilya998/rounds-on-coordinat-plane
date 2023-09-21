@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Main {
     public static void inpt(Scanner scn) {
         try {
-            global.x = scn.nextDouble();
+            global.temp = scn.nextDouble();
             global.a -= 1;
         } catch (InputMismatchException e) {
             String err = scn.next();
@@ -21,11 +21,11 @@ public class Main {
             Scanner scan = new Scanner(System.in);
             System.out.print("Введите координаты и радиус первой окружности в формате 'x y r': ");
             inpt(scan);
-            x1 = global.x;
+            x1 = global.temp;
             inpt(scan);
-            y1 = global.x;
+            y1 = global.temp;
             inpt(scan);
-            r1 = global.x;
+            r1 = global.temp;
         }
         global.a = 3;
         while (global.a != 0) {
@@ -33,11 +33,11 @@ public class Main {
             Scanner scan1 = new Scanner(System.in);
             System.out.print("Введите координаты и радиус второй окружности в формате 'x y r': ");
             inpt(scan1);
-            x2 = global.x;
+            x2 = global.temp;
             inpt(scan1);
-            y2 = global.x;
+            y2 = global.temp;
             inpt(scan1);
-            r2 = global.x;
+            r2 = global.temp;
         }
         double x = Math.abs(x1 - x2);
         double y = Math.abs(y1 - y2);
