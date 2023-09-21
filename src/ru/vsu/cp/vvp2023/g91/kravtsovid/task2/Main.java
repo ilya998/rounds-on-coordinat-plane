@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        final double EPS = 1e-14;
         Scanner scan = new Scanner(System.in);
         System.out.print("Введите координаты от и радиус первой окружности в формате 'x y r': ");
         double x1 = scan.nextInt();
@@ -18,9 +19,9 @@ public class Main {
         double dist = Math.sqrt(x * x + y * y);
         if (r1 <= 0 || r2 <= 0) {
             System.out.println("Радиус должен быть положительным.");
-        }else if ((r1 + r2 < dist) || (Math.max(r1, r2) > (Math.min(r1, r2) + dist))) {
+        } else if ((r1 + r2 < dist) || (Math.max(r1, r2) > (Math.min(r1, r2) + dist))) {
             System.out.println("Окружности не пересекаются.");
-        } else if ((r1 + r2 == dist) || (Math.max(r1, r2) == Math.min(r1, r2) + dist)) {
+        } else if (Math.abs((r1 + r2) - dist) < EPS || Math.abs(Math.max(r1, r2) - (Math.min(r1, r2) + dist)) < EPS) {
             System.out.println("Окружности пересекаются в одной точке.");
         } else {
             System.out.println("Окружности пересекаются в 2-ух точках.");
